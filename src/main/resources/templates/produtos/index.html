@@ -29,7 +29,7 @@
 				<tr th:each="produto : ${listarProdutos}">
 					<td th:text="${produto.getNome()}">produto</td>
 					<td th:text="${produto.getQuantidade()}">quantidade</td>
-					<td th:text="${produto.getValor}">Valor</td>
+					<td th:text="${produto.getValor()}">Valor</td>
 					<td><a href="#" class="btn btn-warning"> Editar</a> <a
 						href="#" class="btn btn-danger"> Deletar</a> <a href="#"
 						class="btn btn-info"> Detalhe</a></td>

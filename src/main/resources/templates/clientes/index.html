@@ -11,7 +11,28 @@
 </head>
 <body>
 	<div class="container mt-3">
-		<h3>Cadastro de clientes</h3>
+		<a type="button" class="btn btn-primary" href='/cliente/criar'>Criar</a>
+		<h3>Clientes cadastrados</h3>
+		<table class="table table-bordered table-sm">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Documento</th>
+					<th>Endereço</th>
+					<th>Edição</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${listarCliente}">
+					<td th:text="${cliente.getNome()}">nome</td>
+					<td th:text="${cliente.getDocumento()}">documento</td>
+					<td th:text="${cliente.getEndereco()}">endereço</td>
+					<td><a href="#" class="btn btn-warning"> Editar</a> <a
+						href="#" class="btn btn-danger"> Deletar</a> <a href="#"
+						class="btn btn-info"> Detalhe</a></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

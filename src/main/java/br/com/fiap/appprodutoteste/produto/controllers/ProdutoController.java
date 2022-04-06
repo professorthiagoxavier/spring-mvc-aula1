@@ -28,10 +28,10 @@ public class ProdutoController {
 	public ModelAndView index() {
 		ModelAndView modelView = new ModelAndView("produtos/index");
 		           //Long id, String nome, Integer quantidade, BigDecimal valor
-		Produto produto1 = new Produto(new Long(1), "chocolate", 3, new BigDecimal(2));
+		/*Produto produto1 = new Produto(new Long(1), "chocolate", 3, new BigDecimal(2));
 		Produto produto2 = new Produto(new Long(2), "chocolate belga", 100, new BigDecimal(40));
 		Produto produto3 = new Produto(new Long(4), "chocolate branco", 30, new BigDecimal(20));
-		List<Produto> produtos = Arrays.asList(produto1, produto2, produto3);
+		List<Produto> produtos = Arrays.asList(produto1, produto2, produto3); */
 		
 		List<Produto> produtoDaRepository = produtoRepository.findAll();
 		modelView.addObject("listarProdutos", produtoDaRepository);
@@ -50,9 +50,7 @@ public class ProdutoController {
 		Produto produtoEntity = modelMapper.map(produto, Produto.class);
 		
 		produtoRepository.save(produtoEntity);
-		
 		return "redirect:/produtos";
-			
 	}
 	
 	
