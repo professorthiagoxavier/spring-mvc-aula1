@@ -2,9 +2,19 @@ package br.com.fiap.appprodutoteste.produto.dto;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class ProdutoDto {
+	@NotBlank
+	@NotNull
 	private String nome; 
+	
 	private Integer quantidade; 
+	
+	@NotNull
+	@DecimalMin(value="0.0")
 	private BigDecimal valor;
 	
 	public String getNome() {
