@@ -1,10 +1,19 @@
 package br.com.fiap.appprodutoteste.produto.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ClienteDto {
 	private Long id; 
+	
+	@NotBlank
+	@NotNull
 	private String nome; 
+	
+	@NotBlank
+	@NotNull
 	private String documento; 
+	
 	private String endereco;
 	
 	public Long getId() {

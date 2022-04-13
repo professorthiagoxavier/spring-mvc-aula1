@@ -1,14 +1,18 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<title>Minha primeira página</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{cabecalho :: head('Listar produtos')}"></header>
 <body>
-	<p>Olá mundo!</p>
-	<p>Exemplo do restart</p>
-	<p>
-		Seja bem vindo, <span th:text="${nomeUsuario}">Teste</span>!
-	</p>
+	<nav th:replace="~{menu :: nav}"></nav>
+
+	<div class="container">
+
+		<p>Olá mundo!</p>
+		<p>Exemplo do restart</p>
+		<p>
+			Seja bem vindo, <span th:text="${nomeUsuario}">Teste</span>!
+		</p>
+	</div>
 </body>
 </html>
