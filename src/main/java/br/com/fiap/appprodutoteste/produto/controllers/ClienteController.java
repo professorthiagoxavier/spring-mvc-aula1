@@ -40,6 +40,12 @@ public class ClienteController {
 		return new ModelAndView("clientes/criar");
 	}
 	
+	@GetMapping("cliente/bloqueado")
+	public String bloqueado()
+	{
+		return "";
+	}
+	
 	@PostMapping("/cliente")
 	public ModelAndView salvar(@Valid ClienteDto model, BindingResult bindingResult) 
 	{
