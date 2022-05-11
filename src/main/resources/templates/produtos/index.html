@@ -1,10 +1,11 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <header th:replace="~{cabecalho :: head('Listar produtos')}"></header>
+
 <body>
-<nav th:replace="~{menu :: nav}"></nav>
+	<nav th:replace="~{menu :: nav}"></nav>
+	<span th:text="${mensagem}"></span>
 	<div class="container mt-3">
 		<a type="button" class="btn btn-primary" href='/produtos/criar'>Criar</a>
 		<h3>Cadastro de produtos</h3>
@@ -23,15 +24,16 @@
 					<td th:text="${produto.getQuantidade()}">quantidade</td>
 					<td th:text="${produto.getValor()}">Valor</td>
 					<td>
-	 <a th:href="@{/produtos/{produtoId}(produtoId = ${produto.id})}" class="btn btn-info"> Detalhe</a>
-					<a href="#" class="btn btn-warning"> Editar</a> <a
-						href="#" class="btn btn-danger"> Deletar</a>
-						</td>
+						<a th:href="@{/produtos/{produtoId}(produtoId = ${produto.id})}" class="btn btn-info">
+							Detalhe</a>
+						<a th:href="@{/produtos/{produtoId}/edit(produtoId = ${produto.id})}" class="btn btn-warning">
+							Editar</a>
+						<a th:href="@{/produtos/{produtoId}/delete (produtoId = ${produto.id})}" class="btn btn-danger"> Deletar</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </body>
+
 </html>
-
-

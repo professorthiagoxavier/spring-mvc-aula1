@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{cabecalho :: head('Alterar produto')}"></header>
+<body>
+<nav th:replace="~{menu :: nav}"></nav>
+	<div class="container mt-3">
+		<form th:object="${produtoDto}" action="#" th:action="@{/produtos/{id} (id=${produtoId})}" method="POST">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Nome</span> 
+						<input type="text" th:errorclass="is-invalid" th:field="*{nome}"
+							class="form-control">
+						<div class="invalid-feedback" th:errors="*{nome}"></div>
+					</div>
+
+				</div>
+				<div class="col-md-6">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Quantidade</span> <input
+							type="text" th:field="*{quantidade}" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Valor</span> <input type="text"
+							th:errorclass="is-invalid" onblur="tratarValor(this)"
+							th:field="*{valor}" class="form-control">
+						<div class="invalid-feedback" th:errors="*{valor}"></div>
+					</div>
+				</div>
+			</div>
+			<input class="btn btn-success" type="submit" value="Salvar" />
+		</form>
+	</div>
+</body>
+</html>
+
+<script>
+	function tratarValor(campo) {
+		campo.value = campo.value.replace(",", ".");
+	}
+</script>
